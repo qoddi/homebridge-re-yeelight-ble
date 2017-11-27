@@ -58,6 +58,7 @@ function ReYeelightBLEPlatform(log, config, api) {
         this.api = api;
     }
     
+	this.deletingacc = [];
     
     this.log.info("[ReYeelight][INFO]*********************************************************************");
     this.log.info("[ReYeelight][INFO]*                         ReYeelightBLE v%s                      *",packageFile.version);
@@ -66,6 +67,12 @@ function ReYeelightBLEPlatform(log, config, api) {
     this.log.info("[ReYeelight][INFO]*********************************************************************");
     this.log.info("[ReYeelight][INFO]start success...");
     var blehelper = new BLEHelper(this);
+	
+	this.api.on('didFinishLaunching', function() {
+	    this.log.info("[ReYeelight][BLE]start Cleaning!");
+	    this.clearAccessory();
+	    
+	}.bind(this));
 }
 
 ReYeelightBLEPlatform.prototype.registerAccessory = function(accessory) {
@@ -73,5 +80,24 @@ ReYeelightBLEPlatform.prototype.registerAccessory = function(accessory) {
 }
 
 ReYeelightBLEPlatform.prototype.configureAccessory = function(accessory) {
-    this.api.unregisterPlatformAccessories('homebridge-re-yeelight-ble', 'ReYeelightBLEPlatform', [accessory]);
+	this.deletingacc.push(accessory);
 }
+
+ReYeelightBLEPlatform.prototype.clearAccessory = function(accessory) {
+    for (var i in this.deletingacc) {
+        Accessory = this.deletingacc[i];
+		this.log.info("[ReYeelight][BLE]Deleting " + Accessory.UUID);
+        this.api.unregisterPlatformAccessories('homebridge-re-yeelight-ble', 'ReYeelightBLEPlatform', [Accessory]);
+    }
+}
+
+ReYeelightBLEPlatform.prototype.getNameFormConfig = function(macaddress) {
+	var defaultValueCfg = this.config['defaultValue'];
+	if(null != defaultValueCfg) {
+		if(null != defaultValueCfg[macaddress]) {
+			return defaultValueCfg[macaddress];
+		}
+	}
+	return false;
+}
+    

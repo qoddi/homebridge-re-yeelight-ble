@@ -15,28 +15,47 @@ If you are using Raspberry Pi, please read [Running-HomeBridge-on-a-Raspberry-Pi
 3. Install packages.   
 ```
 1. sudo apt-get install libbluetooth-dev
+```
+2. Go to your node_modules folder  
+(You can find it by using by ```node -g root```)
+```
+3. npm install noble
 
-2. sudo npm install -g noble
+4. sudo apt-get install libcap2-bin
 
-3. sudo apt-get install libcap2-bin
-
-4. Run following command:
+5. Run following command:
 ```sh
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
-``` 
-
-npm install -g homebridge-re-yeelight
 ```
+```
+6. Run following command:
+```sh
+hciconfig hci0 up
+```
+
+npm install -g homebridge-re-yeelight-ble
+```
+
+Then start homebridge  
+Wait until you get output.    
+If you found output like this: 
+```
+[ReYeelight][BLE]Timer Started
+```
+You can be sure that noble and bluetooth has no problem and the plugin is running properly
+
+
 ## Configuration
 ```
 "platforms": [
     {
-        "platform": "ReYeelightPlatform",
-    }]
+		"platform": "ReYeelightBLEPlatform",
+		"defaultValue": {
+			"f8:24:41:e9:fa:cf": "Bedside Lamp"
+		}
+	}]
 ```
-
-Wait until you get output.   
-For more information about token, please refer to [OpenMiHome](https://github.com/OpenMiHome/mihome-binary-protocol) and [miio](https://github.com/aholstenson/miio).   
+  
 ## Version Logs 
 ### 0.0.1
 1.add support for BedsideLamp.
