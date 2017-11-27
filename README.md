@@ -20,7 +20,7 @@ If you are using Raspberry Pi, please read [Running-HomeBridge-on-a-Raspberry-Pi
 1. sudo apt-get install libbluetooth-dev
 ```
 2. Go to your node_modules folder  
-(You can find it by using by ```node -g root```)
+(You can find it by using by ```npm -g root```)
 ```
 3. npm install noble
 
@@ -59,5 +59,7 @@ You can be sure that noble and bluetooth has no problem and the plugin is runnin
 ```
   
 ## Version Logs 
+### 0.0.2
+1.bug fix
 ### 0.0.1
 1.add support for BedsideLamp.
