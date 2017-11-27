@@ -13,6 +13,9 @@ Thanks for [nfarina](https://github.com/nfarina)(the author of [homebridge](http
 If you are using Raspberry Pi, please read [Running-HomeBridge-on-a-Raspberry-Pi](https://github.com/nfarina/homebridge/wiki/Running-HomeBridge-on-a-Raspberry-Pi).   
 2. Make sure you can see HomeBridge in your iOS devices, if not, please go back to step 1.   
 3. Install packages.   
+4. Install Plugin.
+
+## Install packages
 ```
 1. sudo apt-get install libbluetooth-dev
 ```
@@ -30,11 +33,9 @@ sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
 
 6. Run following command:
 ```sh
-hciconfig hci0 up
+sudo hciconfig hci0 up
 ```
 
-npm install -g homebridge-re-yeelight-ble
-```
 
 Then start homebridge  
 Wait until you get output.    
