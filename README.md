@@ -1,5 +1,5 @@
 # homebridge-re-yeelight-ble
-[![npm version](https://badge.fury.io/js/homebridge-re-yeelight.svg)](https://badge.fury.io/js/homebridge-re-yeelight)
+[![npm version](https://badge.fury.io/js/homebridge-re-yeelight-ble.svg)](https://badge.fury.io/js/homebridge-re-yeelight-ble)
 
 Yeelight BLE plugin for homebridge(Rewrited)   
    
@@ -49,12 +49,13 @@ You can be sure that noble and bluetooth has no problem and the plugin is runnin
 ## Configuration
 ```
 "platforms": [
-    {
+	{
 		"platform": "ReYeelightBLEPlatform",
 		"defaultValue": {
 			"f8:24:41:e9:fa:cf": "Bedside Lamp"
 		}
-	}]
+	}
+]
 ```
   
 ## Version Logs 
