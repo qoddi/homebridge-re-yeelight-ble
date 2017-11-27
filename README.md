@@ -16,9 +16,8 @@ If you are using Raspberry Pi, please read [Running-HomeBridge-on-a-Raspberry-Pi
 4. Install Plugin.
 
 ## Install packages
-```
-1. sudo apt-get install libbluetooth-dev
-```
+1. ```sudo apt-get install libbluetooth-dev```  
+
 2. Go to your node_modules folder  
 (You can find it by using by ```npm -g root```)
 
