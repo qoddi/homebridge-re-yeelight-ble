@@ -22,12 +22,12 @@ If you are using Raspberry Pi, please read [Running-HomeBridge-on-a-Raspberry-Pi
 3. npm install noble
 
 4. sudo apt-get install libcap2-bin
-
+```
 5. Run following command:
 ```sh
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
 ```
-```
+
 6. Run following command:
 ```sh
 hciconfig hci0 up
