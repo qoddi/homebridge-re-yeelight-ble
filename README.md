@@ -56,7 +56,7 @@ You can be sure that noble and bluetooth has no problem and the plugin is runnin
 ]
 ```
 
-## If you can't connect to your device, You can try to use ```sudo hciconfig hcio reset```
+## If you can't connect to your device, You can try to use ```sudo hciconfig hci0 reset```
   
 ## Version Logs 
 ### 0.0.4
