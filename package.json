@@ -1,6 +1,6 @@
 {
   "name": "homebridge-re-yeelight-ble",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Mi Yeelight BLE plugin for homebridge: https://github.com/nfarina/homebridge",
   "license": "GPLV3",
   "keywords": [

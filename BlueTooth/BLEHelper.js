@@ -171,10 +171,10 @@ YeeBleLamp.prototype.Pair = function() {
     that.platform.log.debug('[ReYeelight][BLEDevice]send pairing command');
     that.commandCharact.write(Buffer.from('436702000000000000000000000000000000', 'hex'), false, function(error) {
         if (!error) {
-            that.platform.log.info('[ReYeelight][BLEDevice][BLE]Pair Success');
+            that.platform.log.info('[ReYeelight][BLEDevice]Pair Success');
             that.connectionstatus = true;
         } else {
-            that.platform.log.error('[ReYeelight][BLEDevice][BLE]error');
+            that.platform.log.error('[ReYeelight][BLEDevice]Pair error');
         }
     });
     this.InitAccessory();
@@ -301,9 +301,8 @@ YeeBleLamp.prototype.SetColour = function(hue,sat) {
     bleCmd[2] = parseInt(rgb.r.toString(16), 16);
     bleCmd[3] = parseInt(rgb.g.toString(16), 16);
     bleCmd[4] = parseInt(rgb.b.toString(16), 16);
-    bleCmd[5] = 0xFF;
-    bleCmd[6] = 0x65;
-
+    bleCmd[5] = 0x00;
+    bleCmd[6] = parseInt(this.bri.toString(16), 16);;
     this.SendCmd(bleCmd);
 }
         
