@@ -57,6 +57,8 @@ You can be sure that noble and bluetooth has no problem and the plugin is runnin
 ```
   
 ## Version Logs 
+### 0.0.4
+1.remove dependencies
 ### 0.0.3
 1.fix rgb
 ### 0.0.2
