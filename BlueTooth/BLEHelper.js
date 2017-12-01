@@ -173,6 +173,7 @@ YeeBleLamp.prototype.Pair = function() {
         if (!error) {
             that.platform.log.info('[ReYeelight][BLEDevice]Pair Success');
             that.connectionstatus = true;
+			that.TurnOff();
         } else {
             that.platform.log.error('[ReYeelight][BLEDevice]Pair error');
         }
